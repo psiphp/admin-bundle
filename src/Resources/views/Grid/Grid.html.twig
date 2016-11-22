@@ -1,0 +1,53 @@
+{% set description = psi_describe(object.classFqn) %}
+{% if description.has('std.uri.create') %}
+    <a class="ui button primary" href="{{ descriotion.get('std.uri.create').value }}"><i class="ui icon create"></i>{{ 'create'|trans() }}</a>
+{% endif %}
+
+    <div class="ui grid">
+        <div class="twelve wide column">
+            <form method="POST" class="ui form" enctype="multipart/form-data">
+            {{ psi_render_object(object.paginator) }}
+            <table class="ui celled table">
+                <thead>
+                    {% for header in object.table.headers %}
+                        <th>
+                            {{ header.name }}
+                            {% if false == header.sorted %}
+                                <a href="{{ path('psi_admin_list', header.getUrlParametersForSort('asc')) }}"><i class="ui icon sort"></i></a>
+                            {% else %}
+                                <a href="{{ path('psi_admin_list', header.getUrlParametersForSort(header.isSortAscending ? 'desc' : 'asc')) }}">
+                                    <i class="ui icon sort {{ header.isSortAscending ? 'descending' : 'ascending' }}"></i>
+                                </a>
+                            {% endif %}
+                        </th>
+                    {% endfor %}
+                    <th>{{ 'Actions'|trans() }}</th>
+                </thead>
+                <tbody>
+                {% for row in object.table.body %}
+                    {{ psi_render_object(row) }}
+                {% endfor %}
+                </tbody>
+            </table>
+            {{ psi_render_object(object.paginator) }}
+            {% if object.actionBar.availableActionNames %}
+                {{ psi_render_object(object.actionBar) }}
+            {% endif %}
+            </form>
+        </div>
+        <div class="four wide column">
+            <div class="ui segment">
+                <h3>Filters</h3>
+                    <form class="ui form" method="GET" action="{{ path('psi_admin_list', object.filter.urlParametersForFilter) }}">
+                        {{ form_errors(object.filter.form) }}
+                        {% for filter, child in object.filter.form %}
+                            <h4>{{ filter|trans() }}</h4>
+                            {{ form_widget(child) }}
+                        {% endfor %}
+                        <input type="submit" class="ui button primary" value="{{ 'Filter'|trans() }}" />
+                        <a class="ui button primary" href="{{ path('psi_admin_list', object.filter.urlParametersForFilter) }}">{{ 'Clear filters'|trans() }}</a>
+                    </form>
+            </div>
+        </div>
+    </div>
+

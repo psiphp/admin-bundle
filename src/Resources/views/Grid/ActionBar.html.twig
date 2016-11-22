@@ -1,0 +1,15 @@
+<div class="ui grid segment">
+    <div class="one wide column">
+            {{ 'with selected'|trans() }}:
+    </div>
+    <div class="two wide column">
+            <select name="{{ object.inputName }}">
+            {% for actionName in object.availableActionNames %}
+                <option name="{{ actionName }}">{{ actionName|trans() }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="six wide column">
+        <button type="submit" class="ui form button primary">{{ 'execute action'|trans() }}</button>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+psi_admin_list:
+    path: /
+    defaults:
+        _controller: psi_admin.controller.list:index
+        class: "Psi\\Bundle\\Admin\\Example\\app\\Entity\\Event"

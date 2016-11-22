@@ -1,0 +1,5 @@
+imports:
+    - { resource: "psi_content_type.yml" }
+    - { resource: "psi_object_agent.yml" }
+    - { resource: "psi_object_render.yml" }
+    - { resource: "doctrine_orm.yml" }

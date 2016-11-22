@@ -1,0 +1,25 @@
+<div class="ui pagination menu">
+    {% if object.currentPage > 1 %}
+        <a class="icon item" href="{{ path('psi_admin_list', object.linkParams(object.currentPage - 1)) }}" >
+            <i class="left arrow icon"></i>
+        </a>
+    {% else %}
+        <a class="icon item">
+            <i class="left arrow icon disabled"></i>
+        </a>
+    {% endif %}
+    <div class="item">
+        {{ object.currentPage }}
+    </div>
+    {% if object.isLastPage %}
+        <a class="icon item">
+            <i class="right arrow icon disabled"></i>
+        </a>
+    {% else %}
+    {#
+        <a class="icon item" href="{{ path('psi_admin_list', object.linkParams(object.currentPage + 1)) }}" >
+            <i class="right arrow icon"></i>
+        </a>
+        #}
+    {% endif %}
+</div>

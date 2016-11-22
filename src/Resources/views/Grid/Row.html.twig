@@ -1,0 +1,12 @@
+<tr>
+    {% for cell in object %}
+        <td>{{ psi_render_object(cell) }}</td>
+    {% endfor %}
+    <td>
+        {% set description = psi_describe(object.data) %}
+        {% if description.has('std.uri.update') %}
+        <a class="ui button primary" href="{{ description.get('std.uri.update').value }}"><i class="ui icon edit"></i>{{ 'edit'|trans() }}</a>
+        {% endif %}
+    </td>
+</tr>
+

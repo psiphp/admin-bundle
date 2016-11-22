@@ -1,0 +1,3 @@
+psi_content_type:
+    enabled_storage:
+        - doctrine_orm

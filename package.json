@@ -1,0 +1,17 @@
+{
+  "name": "psi-admin-bundle",
+  "version": "1.0.0",
+  "description": "Symfony Admin Bundle using PSI CMF",
+  "main": "index.js",
+  "repository": "https://github.com/psiphp/admin-bundle",
+  "author": "Daniel Leech",
+  "license": "MIT",
+  "dependencies": {
+    "semantic-ui": "^2.2.6"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-add-src": "^0.2.0",
+    "gulp-livereload": "^3.8.1"
+  }
+}

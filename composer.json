@@ -1,0 +1,45 @@
+{
+    "name": "psiphp/admin-bundle",
+    "description": "AdminBundle using Psi components",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Leech",
+            "email": "daniel@dantleech.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "symfony/framework-bundle": "^3.0",
+        "psiphp/grid-bundle": "^1.0",
+        "psiphp/content-type-bundle": "^1.0",
+        "psiphp/description-bundle": "^1.0@dev",
+        "psiphp/object-agent-bundle": "^1.0@dev",
+        "psiphp/object-render-bundle": "^1.0@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "@stable",
+        "doctrine/doctrine-bundle": "^1.6",
+        "doctrine/orm": "^2.5",
+        "symfony/asset": "^3.1",
+        "symfony/templating": "^3.1",
+        "symfony/twig-bundle": "^3.1",
+        "symfony/process": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Psi\\Bundle\\Admin\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Psi\\Bundle\\Admin\\Tests\\": "tests/",
+            "Psi\\Bundle\\Admin\\Example\\": "example/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
